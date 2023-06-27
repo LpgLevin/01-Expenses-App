@@ -5,6 +5,7 @@ function ExpenseItem(expenseProps) {
     const expenseDate = new Date(2021, 2, 28);
     const expesnseTitle = 'Car Insurance';
     const expenseAmount = 294.67;
+    
 
     return (
 
