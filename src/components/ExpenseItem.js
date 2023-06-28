@@ -1,15 +1,15 @@
 import './ExpenseItem.css';
 
-function ExpenseItem(expenseProps) {
+function ExpenseItem({ date, title, amount }) {
 
     return (
 
         <div className="expense-item">
-            <div>{ expenseProps.date.toISOString() }</div>
+            <div>{ date.toISOString() }</div>
             <div className="expense-item__description">
-                <h2>{ expenseProps.title }</h2>
+                <h2>{ title }</h2>
             </div>
-            <div className="expense-item__price">£{ expenseProps.amount }</div>
+            <div className="expense-item__price">£{ amount }</div>
         </div>
 
     );
