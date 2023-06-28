@@ -2,6 +2,10 @@ import Expenses from "./components/Expenses/Expenses.js";
 
 function App() {
 
+  //56. An Alternative Function Syntax
+
+    // const App = () => {the stuff below goes in here}
+
   const expenses = [
     {
       id: 'e1',
