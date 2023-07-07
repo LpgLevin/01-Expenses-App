@@ -14,7 +14,7 @@ function Expenses( { items } ) {
             ></ExpenseItem>
 
             <ExpenseItem 
-                title={ items[1].amount }
+                title={ items[1].title }
                 amount={ items[1].amount }
                 date={ items[1].date }
             ></ExpenseItem>
