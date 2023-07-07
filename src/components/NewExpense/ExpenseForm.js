@@ -3,6 +3,12 @@ import "./ExpenseForm.css";
 
 function ExpenseForm() {
 
+    function titleChangeHandler( event ) {
+
+        console.log( event.target.value );
+
+    };
+
     return (
 
         <form>
@@ -10,7 +16,7 @@ function ExpenseForm() {
 
                 <div classname="new-expense__control" >
                     <label> Title </label>
-                    <input type="text" />
+                    <input type="text" onChange={ titleChangeHandler } />
                 </div>
 
                 <div classname="new-expense__control" >
