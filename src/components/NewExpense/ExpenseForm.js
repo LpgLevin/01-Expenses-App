@@ -4,12 +4,29 @@ import "./ExpenseForm.css";
 function ExpenseForm() {
 
     const [ enteredTitle, setEnteredTitle ] = useState( "" );
-    const [ enteredAmount, setEnteredAmount ] = useSate( "" );
+    const [ enteredAmount, setEnteredAmount ] = useState( "" );
     const [ enteredDate, setEnteredDate ] = useState( "" );
+
+    //---------This is what we would do if we wanted to use one piece of state instead of three: -----------------------------------------------------
+    
+    // const [ userInput, setUserInput ] = useState( {
+    //    enteredatitle: "",
+    //    enteredAmount: "",
+    //    enteredDate: ""
+    // });
     
 
     function titleChangeHandler( event ) {
         setEnteredTitle( event.target.value );
+
+        //------------------------- For one piece of state, to avoid losing the other values in the object, we use the spread operator to copy in hte existing user input before modifying the one value we are working with. ----------------------------------------------------------------------
+
+        // setUserInput( { 
+        //     ...userInput,
+        //     enteredTitle: event.target.value,
+        //      
+        //  } );
+        
     };
 
     function amountChangeHandler( event ) {
@@ -23,9 +40,9 @@ function ExpenseForm() {
     return (
 
         <form>
-            <div classname="new-expense__controls" >
+            <div className="new-expense__controls" >
 
-                <div classname="new-expense__control" >
+                <div className="new-expense__control" >
                     <label> Title </label>
                     <input 
                         type="text" 
@@ -33,7 +50,7 @@ function ExpenseForm() {
                     />
                 </div>
 
-                <div classname="new-expense__control" >
+                <div className="new-expense__control" >
                     <label> Amount </label>
                     <input 
                         type="number" 
@@ -43,7 +60,7 @@ function ExpenseForm() {
                     />
                 </div>
 
-                <div classname="new-expense__control" >
+                <div className="new-expense__control" >
                     <label> Date </label>
                     <input 
                         type="date" 
