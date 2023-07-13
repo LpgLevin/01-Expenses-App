@@ -7,22 +7,27 @@ import ExpensesFilter from "../Filter/ExpensesFilter";
 function Expenses( { items } ) {
 
     const [ filteredYear, setFilteredYear ] = useState( "2020" );
-    const [ filterInfoText, setFilterInfoText ] = useState( "2019, 2021 & 2022" );
+   
+    let filterInfoText = "2019, 2021 & 2022";
+
+    if ( filteredYear === "2019" ) {
+        filterInfoText = "2020, 2021 & 2022";
+    }
+    else if ( filteredYear === "2020" ) {
+        filterInfoText = "2019, 2021 & 2022";
+    }
+    else if ( filteredYear === "2021" ) {
+        filterInfoText = "2019, 2020 & 2022";
+    }
+    else if ( filteredYear === "2022" ) {
+        filterInfoText = "2019, 2020 & 2021";
+    }
+
+
     function filterChangeHandler( selectedYear ) {
         setFilteredYear( selectedYear );
 
-        if ( selectedYear === "2019" ) {
-            setFilterInfoText( "2020, 2021 & 2022" );
-        }
-        else if ( selectedYear === "2020" ) {
-            setFilterInfoText( "2019, 2021 & 2022" );
-        }
-        else if ( selectedYear === "2021" ) {
-            setFilterInfoText( "2019, 2020 & 2022" );
-        }
-        else if ( selectedYear === "2022" ) {
-            setFilterInfoText( "2019, 2020 & 2021" );
-        }
+        
     };
 
     return (
