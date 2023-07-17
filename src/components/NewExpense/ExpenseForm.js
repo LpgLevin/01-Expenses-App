@@ -7,33 +7,8 @@ function ExpenseForm( { onSaveExpenseData }) {
     const [ enteredAmount, setEnteredAmount ] = useState( "" );
     const [ enteredDate, setEnteredDate ] = useState( "" );
 
-    //---------This is what we would do if we wanted to use one piece of state instead of three: -----------------------------------------------------
-    
-    // const [ userInput, setUserInput ] = useState( {
-    //    enteredatitle: "",
-    //    enteredAmount: "",
-    //    enteredDate: ""
-    // });
-    
-
     function titleChangeHandler( event ) {
         setEnteredTitle( event.target.value );
-
-        //------------------------- For one piece of state, to avoid losing the other values in the object, we use the spread operator to copy in hte existing user input before modifying the one value we are working with. ----------------------------------------------------------------------
-        
-        // setUserInput( { 
-        //     ...userInput,
-        //     enteredTitle: event.target.value,
-        //      
-        //  } );
-
-        //**********HOWEVER***************
-        // By using the spread operator in this way, we are depending on our previous state, which risks inaccuracy. By using instead the sytax below, react guaruntees that the previous state used will always be the most up to date state snapshot, keeping all scheduled state updates in mind.
-
-        // setUserInput( ( prevState ) => {
-        //     return { ...prevState, enteredTitle: event.target.value };
-        // } );
-        
     };
 
     function amountChangeHandler( event ) {
@@ -54,8 +29,7 @@ function ExpenseForm( { onSaveExpenseData }) {
             date: new Date(enteredDate)
         };
 
-        onSaveExpenseData();
-
+        onSaveExpenseData( expenseData );
         setEnteredTitle( "" );
         setEnteredAmount( "" );
         setEnteredDate( "" );
