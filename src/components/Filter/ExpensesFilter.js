@@ -6,6 +6,8 @@ function ExpensesFilter( { onChangeFilter, selected } ) {
       
         onChangeFilter( event.target.value );
 
+        
+
     };
 
     return (
