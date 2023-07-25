@@ -1,6 +1,7 @@
 import Expenses from "./components/Expenses/Expenses.js"; 
 import NewExpense from "./components/NewExpense/NewExpense.js";
 import React, { useState } from "react";
+import AddExpenseButton from "./components/Expenses/AddExpenseButton.js";
 
 const DUMMY_EXPENSES = [
   {
@@ -31,7 +32,34 @@ const DUMMY_EXPENSES = [
 function App() {
 
   const [ expenses, setExpenses ] = useState( DUMMY_EXPENSES );
+  const [ expenseAdded, setExpenseAdded ] = useState( false );
 
+  const [form, setForm] = React.useState(null);
+
+
+  
+  function handleClickAddExpense() {
+      setForm(
+         <ExpenseForm 
+          setForm={ setForm } 
+          handleClickSubmitExpense={ handleClickSubmitExpense }
+        />
+          )
+  };
+  
+  
+  function handleClickSubmitExpense() {
+      setForm(null);
+  };
+  
+  
+  return (
+    <div>
+      <button onClick={ handleClickAddExpense }>Add Expense</button> 
+     {form}
+    </div>    
+  );
+}
   function addExpenseHandler( expense ) {
 
     setExpenses( ( prevExpenses ) => {
@@ -42,6 +70,7 @@ function App() {
 
   return (
     <div>
+      <AddExpenseButton />
       <NewExpense onAddExpense={ addExpenseHandler } />
       <Expenses items={ expenses } />
     </div>
