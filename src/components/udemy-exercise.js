@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 
 import React, {useState} from 'react';
+import ExpenseForm from './NewExpense/ExpenseForm';
 
 // don't change the Component name "App"
 export default function App() {
@@ -28,8 +29,43 @@ export default function App() {
     
     return (
       <div>
-        <button onClick={ handleClickDelete }>Delete</button>
+        <button onClick={ handleClickDelete }>Delete</button> 
        {warningMessage}
       </div>    
     );
+}
+
+// delete button = add expense button
+// setWarningMessage = setExpenseForm
+// warningMessage = ExpenseForm
+// handleClickDelete changes warning message to the rendered message = handleClickSum
+// proceed button = submit expense button
+
+export default function App() {
+    
+  const [form, setForm] = React.useState(null);
+
+
+  
+  function handleClickAddExpense() {
+      setForm(
+         <ExpenseForm 
+          setForm={ setForm } 
+          handleClickSubmitExpense={ handleClickSubmitExpense }
+        />
+          )
+  };
+  
+  
+  function handleClickSubmitExpense() {
+      setForm(null);
+  };
+  
+  
+  return (
+    <div>
+      <button onClick={ handleClickAddExpense }>Add Expense</button> 
+     {form}
+    </div>    
+  );
 }
