@@ -1,7 +1,6 @@
 import Expenses from "./components/Expenses/Expenses.js"; 
 import NewExpense from "./components/NewExpense/NewExpense.js";
 import React, { useState } from "react";
-import AddExpenseButton from "./components/Expenses/AddExpenseButton.js";
 
 const DUMMY_EXPENSES = [
   {
