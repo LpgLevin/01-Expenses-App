@@ -1,12 +1,11 @@
 import React from 'react';
+import "./ExpensesFilter.css"
 
 function ExpensesFilter( { onChangeFilter, selected } ) {
 
     function dropdownChangeHandler( event ) {
       
         onChangeFilter( event.target.value );
-
-        
 
     };
 
