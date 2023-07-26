@@ -15,8 +15,7 @@ function ExpensesList({ filteredList }) {
         return(
 
             <ul className="expenses-list" >
-                {filteredList.map( ( expense )=> (
-                        
+                {filteredList.map( ( expense )=> (    
                         <ExpenseItem 
                             key={ expense.id }
                             title={ expense.title } 
