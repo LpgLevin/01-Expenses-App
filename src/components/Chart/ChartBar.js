@@ -9,7 +9,7 @@ function ChartBar( { label, maxValue, value }) {
     if ( maxValue > 0 ) {
 
         barFillHeight = Math.round( ( value / maxValue ) * 100 ) + "%";
-    }
+    };
 
     return (
         <div className="chart-bar">
@@ -17,7 +17,7 @@ function ChartBar( { label, maxValue, value }) {
             <div className="chart-bar__inner">
                 <div 
                     className="chart-bar__fill"
-                    stye={ { height: barFillHeight } }>
+                    style={ { height: barFillHeight } }>
                     
                 </div>
             </div>
