@@ -4,7 +4,7 @@ import ExpenseForm from "./ExpenseForm.js";
 
 function NewExpense( { onAddExpense } ) {
 
-    const [ expenseAdded, setExpenseAdded ] = useState( false );
+    const [ isEditing, setIsEditing ] = useState( false );
 
 
     function saveExpenseDataHandler( enteredExpenseData ) {
@@ -15,18 +15,28 @@ function NewExpense( { onAddExpense } ) {
         };
 
         onAddExpense( expenseData );
+        setIsEditing( false );
     };
 
-    if (expenseAdded)
+
+    function startEditingHandler() {
+        setIsEditing( true );
+    };
+
+    function stopEditingHandler() {
+        setIsEditing( false );
+    };
+
 
     return (
 
         <div className="new-expense" >
+            { !isEditing && (<button onClick={ startEditingHandler }>Add New Expense</button>) }
+           { isEditing && (
             <ExpenseForm 
-                expenseAdded={expenseAdded}
-                setExpenseAdded={setExpenseAdded}
-                onSaveExpenseData={ saveExpenseDataHandler } 
-            />
+                onSaveExpenseData={ saveExpenseDataHandler }
+                onCancel={ stopEditingHandler } 
+            />) }
         </div>
 
     );
